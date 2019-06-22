@@ -1,0 +1,119 @@
+{
+    "env": {
+        "myDefaultIncludePath": [
+            "${workspaceFolder}",
+            "${workspaceFolder}\\include",
+            "${workspaceRoot}"
+        ],
+        "myLinuxCompilerPath": "/usr/bin/gcc",
+        "myMinGWVersion": "8.1.0"
+    },
+    "configurations": [
+        {
+            "name": "MinGW-64",
+            "intelliSenseMode": "clang-x64",
+            "compilerPath": "D:/usr/LLVM/bin/gcc.exe",
+            "includePath": [
+                "${myDefaultIncludePath}",
+                "D:\\usr\\LLVM\\lib\\gcc\\x86_64-w64-mingw32\\${myMinGWVersion}\\include",
+                "D:\\usr\\LLVM\\lib\\gcc\\x86_64-w64-mingw32\\${myMinGWVersion}\\include-fixed",
+                "D:\\usr\\LLVM\\include",
+                "D:\\usr\\LLVM\\opt\\include",
+                "D:\\usr\\LLVM\\x86_64-w64-mingw32\\include",
+                "D:\\usr\\LLVM\\lib\\gcc\\x86_64-w64-mingw32\\${myMinGWVersion}\\include\\c++\\debug",
+                "D:\\usr\\LLVM\\lib\\gcc\\x86_64-w64-mingw32\\${myMinGWVersion}\\include\\c++",
+                "D:\\usr\\LLVM\\lib\\gcc\\x86_64-w64-mingw32\\${myMinGWVersion}\\include\\c++\\x86_64-w64-mingw32\\bits",
+                "D:\\usr\\LLVM\\lib\\gcc\\x86_64-w64-mingw32\\${myMinGWVersion}\\include\\c++\\x86_64-w64-mingw32"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "__GNUC__=8",
+                "__cdecl=__attribute__((__cdecl__))"
+            ],
+            "browse": {
+                "path": [
+                    "${myDefaultIncludePath}",
+                    "D:\\usr\\LLVM\\lib\\gcc\\x86_64-w64-mingw32\\${myMinGWVersion}\\include",
+                    "D:\\usr\\LLVM\\lib\\gcc\\x86_64-w64-mingw32\\${myMinGWVersion}\\include-fixed",
+                    "D:\\usr\\LLVM\\include",
+                    "D:\\usr\\LLVM\\opt\\include",
+                    "D:\\usr\\LLVM\\lib",
+                    "D:\\usr\\LLVM\\libexec",
+                    "D:\\usr\\LLVM\\opt\\lib",
+                    "D:\\usr\\LLVM\\opt\\share",
+                    "D:\\usr\\LLVM\\x86_64-w64-mingw32\\lib",
+                    "D:\\usr\\LLVM\\lib\\gcc\\x86_64-w64-mingw32\\${myMinGWVersion}\\include\\c++\\debug",
+                    "D:\\usr\\LLVM\\lib\\gcc\\x86_64-w64-mingw32\\${myMinGWVersion}\\include\\c++",
+                    "D:\\usr\\LLVM\\lib\\gcc\\x86_64-w64-mingw32\\${myMinGWVersion}\\include\\c++\\x86_64-w64-mingw32\\bits",
+                    "D:\\usr\\LLVM\\lib\\gcc\\x86_64-w64-mingw32\\${myMinGWVersion}\\include\\c++\\x86_64-w64-mingw32"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            },
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+            "configurationProvider": "vector-of-bool.cmake-tools"
+        },
+        {
+            "name": "Linux",
+            "intelliSenseMode": "clang-x64",
+            "compilerPath": "${myLinuxCompilerPath}",
+            "includePath": [
+                "${myDefaultIncludePath}",
+                "/usr/include",
+                "/usr/local/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "__GNUC__=8",
+                "__cdecl=__attribute__((__cdecl__))"
+            ],
+            "browse": {
+                "path": [
+                    "${myDefaultIncludePath}",
+                    "/usr/include",
+                    "/usr/local/include"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            },
+            "cStandard": "c99",
+            "cppStandard": "c++11",
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json"
+        },
+        {
+            "name": "Win32",
+            "includePath": [
+                "D:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\VC\\Tools\\MSVC\\14.12.25827\\include\\*",
+                "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.16299.0\\um",
+                "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.16299.0\\shared",
+                "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.16299.0\\winrt",
+                "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.16299.0\\ucrt",
+                "${workspaceFolder}"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE"
+            ],
+            "intelliSenseMode": "msvc-x64",
+            "browse": {
+                "path": [
+                    "D:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\VC\\Tools\\MSVC\\14.12.25827\\include\\*",
+                    "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.16299.0\\um",
+                    "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.16299.0\\shared",
+                    "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.16299.0\\winrt",
+                    "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.16299.0\\ucrt",
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            },
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+            "configurationProvider": "vector-of-bool.cmake-tools"
+        }
+    ],
+    "version": 4
+}

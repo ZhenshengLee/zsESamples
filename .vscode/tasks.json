@@ -1,0 +1,38 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=733558
+	// for the documentation about the tasks.json format
+	"version": "2.0.0",
+    "tasks": [
+        {
+            "label": "MinGW-Make",
+            "type": "shell",
+            "command": "mingw32-make.exe",
+            // Make this the default build command.
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            // Show the output window only if unrecognized errors occur.
+            "presentation" : {
+                "reveal": "always",
+                "panel":"dedicated"
+            },
+            // No args
+            "args": ["all"],
+            // Use the standard less compilation problem matcher.
+            // zs: The problem matcher is for gcc task, not for make.
+            "problemMatcher": {
+                "owner": "cpp",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "message": 5
+                }
+            }
+        }
+    ]
+}
