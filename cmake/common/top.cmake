@@ -1,9 +1,7 @@
 # using cmaktools in vscode
 include(CMakeToolsHelpers OPTIONAL)
 
-# predefine some variables
-# options
-option(BUILDWITHTEST "Build the project with Unit Tests." ON)
+option(BUILDWITHTEST "Build the project with Unit Tests." OFF)
 option(BUILDWITHLOG "Build the project with Log4cplus System." OFF)
 OPTION (ENABLE_COVERAGE "Build the project with gcov." OFF)
 
@@ -12,12 +10,14 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 
 # set cpp standard globally
-set(CMAKE_CXX_FLAGS "-std=c++11 -Wall -DUNICODE -Wno-deprecated-declarations -Wno-unused-function")
+set(COMMON_FLAGS "-Wall -DUNICODE -Wno-deprecated-declarations -Wno-unused-function -fno-builtin -ffunction-sections -fdata-sections -fno-strict-aliasing -fmessage-length=0")
+
+# changes to gnu++0x to avoid the cross compile failure in windows
+set(CMAKE_CXX_FLAGS "${COMMON_FLAGS} -std=gnu++0x")
 # using gdb
 set(CMAKE_BUILD_TYPE "Debug")
 set(CMAKE_CXX_FLAGS_DEBUG "$ENV{CXXFLAGS} -O0 -g -ggdb")
 set(CMAKE_CXX_FLAGS_RELEASE "$ENV{CXXFLAGS} -O2 ")
-
 # set before finding packages
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/module")
 

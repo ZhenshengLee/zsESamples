@@ -1,0 +1,13 @@
+[
+    {
+        "name": "zs GCC for arm-none-eabi 8.2.1",
+        "toolchainFile": "${workspaceRoot}/cmake/toolchain/arm-none-eabi.cmake",
+        "preferredGenerator": {
+            "name": "Unix Makefiles"
+        },
+        "cmakeSettings":{
+            "cmake.generator": "Unix Makefiles"
+        },
+        "environmentVariables": {}
+    }
+]

@@ -4,6 +4,8 @@ Last Modified: 2019-05-30, 10:29 pm
 filename: readme.md
 ---
 
+改进CMake工程，解决编译选项的污染问题！
+
 # zsESamples-嵌入式例子
 
 Samples Learning Embedded Linux
@@ -25,10 +27,30 @@ Samples Learning Embedded Linux
 基于vscode的CMakeTools插件，选择交叉编译器进行构建，这样不用在CMakeLists中显示构造toolchain文件
 只需在工具栏切换工具链即可，如果需要自动化，在cmake 命令行选项中加入工具链即可
 
-工具链借助vscode的插件下载和更新
+~~工具链借助vscode的插件下载和更新~~
 
-将`C:\Users\zhens\.vscode\extensions\metalcode-eu.windows-arm-none-eabi-0.1.6\bin`添加到path
-然后cmaketools就会自动发现该工具链, 或者执行vscode命令 ``cmake scan for kits`
+使用单板自带的工具链！
+
+~~将`C:\Users\zhens\.vscode\extensions\metalcode-eu.windows-arm-none-eabi-0.1.6\bin`添加到path
+然后cmaketools就会自动发现该工具链, 或者执行vscode命令 ``cmake scan for kits`~~
+
+不添加到path中，使用`cmake-kits.json`，显式定义
+
+```json
+    {
+        "name": "GCC for arm-none-eabi zs",
+        "toolchainFile": "${workspaceRoot}/cmake/toolchain/arm-none-eabi.cmake",
+        "preferredGenerator": {
+            "name": "Unix Makefiles"
+        },
+        "cmakeSettings":{
+            "cmake.generator": "Unix Makefiles"
+        },
+        "environmentVariables": {}
+    }
+```
+
+- 裸板交叉编译只能静态连接，所以把编译描述都静态了
 
 ![](image/2019-06-22-23-43-09.png)
 
@@ -42,7 +64,10 @@ Samples Learning Embedded Linux
 
 ### 复制目标文件到target目录
 
-使用vscode的task功能复制文件，暂不实现，手动复制到ftp服务器，也不打包，因为需要uboot的支持
+- 使用vscode的task功能复制文件，暂不实现，手动复制到ftp服务器，也不打包，因为需要uboot的支持
+- task编写时考虑环境变量，将目标文件复制到`target/${buildKit}/${buildType}/`
+
+[cmake-tools配置参考文档](https://vector-of-bool.github.io/docs/vscode-cmake-tools/settings.html)
 
 todo: 后续使用CMake的功能做到编译，复制，安装功能
 
@@ -85,3 +110,21 @@ todo: 后续使用CMake的功能做到编译，复制，安装功能
 这个太难了，暂不考虑。可以考虑部署一个中间件了
 
 如果是实时中间件的话，要编译实时内核，如ucLinux或RTLinux，不过ucLinux不支持mmu，可以考虑RTLinux
+
+## 应用程序进阶
+
+### 移植dropbear-ssh服务
+
+[参考页面](https://blog.csdn.net/alangdangjia/article/details/8736872)
+
+### 移植python binding
+
+这个是规划
+
+### CMake扩展
+
+单元测试，性能测试，安装，打包功能
+
+[vscode 与 CMake真是天作之合](https://zhuanlan.zhihu.com/p/52874931)
+[how-to-cross-compile-with-cmake-arm-none-eabi-on-windows](https://stackoverflow.com/questions/43781207/how-to-cross-compile-with-cmake-arm-none-eabi-on-windows)
+[新cmake实战](https://www.jianshu.com/p/aaa19816f7ad)

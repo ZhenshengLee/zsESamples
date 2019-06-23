@@ -1,7 +1,7 @@
 {
-	// See https://go.microsoft.com/fwlink/?LinkId=733558
-	// for the documentation about the tasks.json format
-	"version": "2.0.0",
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
     "tasks": [
         {
             "label": "MinGW-Make",
@@ -13,17 +13,22 @@
                 "isDefault": true
             },
             // Show the output window only if unrecognized errors occur.
-            "presentation" : {
+            "presentation": {
                 "reveal": "always",
-                "panel":"dedicated"
+                "panel": "dedicated"
             },
             // No args
-            "args": ["all"],
+            "args": [
+                "all"
+            ],
             // Use the standard less compilation problem matcher.
             // zs: The problem matcher is for gcc task, not for make.
             "problemMatcher": {
                 "owner": "cpp",
-                "fileLocation": ["relative", "${workspaceFolder}"],
+                "fileLocation": [
+                    "relative",
+                    "${workspaceFolder}"
+                ],
                 "pattern": {
                     "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
                     "file": 1,
@@ -32,6 +37,60 @@
                     "severity": 4,
                     "message": 5
                 }
+            }
+        },
+        {
+            "label": "Oflash",
+            "type": "shell",
+            "windows": {
+                "options": {
+                    "shell": {
+                        "executable": "powershell.exe",
+                        "args": [
+                            "-NoProfile",
+                            "-ExecutionPolicy",
+                            "Bypass",
+                            "-Command"
+                        ]
+                    },
+                    "cwd": "D:\\var\\zsftp\\bare"
+                }
+            },
+            "command": "oflash.exe",
+            // Make this the default build command.
+            "args": [
+                {
+                    "value": "0",
+                    "quoting": "weak"
+                },
+                {
+                    "value": "1",
+                    "quoting": "weak"
+                },
+                {
+                    "value": "0",
+                    "quoting": "weak"
+                },
+                {
+                    "value": "0",
+                    "quoting": "weak"
+                },
+                {
+                    "value": "0",
+                    "quoting": "weak"
+                },
+                {
+                    // "value": "lcd_3.5_4.3.bin",
+                    // "value": "led_on_c.bin",
+                    "value": "led_on_c_cmake.bin",
+                    "quoting": "weak"
+                }
+            ],
+            "group": "none",
+            // Show the output window only if unrecognized errors occur.
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
             }
         }
     ]

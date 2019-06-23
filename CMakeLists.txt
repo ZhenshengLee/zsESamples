@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.7.2)
-project(zsTrain)
+project(zsESamples)
+enable_language(ASM)
 
 include(${CMAKE_SOURCE_DIR}/cmake/common/top.cmake)
 
