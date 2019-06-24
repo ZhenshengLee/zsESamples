@@ -1,0 +1,17 @@
+{
+    "recommendations": [
+        "ajshort.ros",
+        "chiehyu.vscode-astyle",
+        "dan-c-underwood.arm",
+        "github.vscode-pull-request-github",
+        "marus25.cortex-debug",
+        "ms-python.python",
+        "ms-vscode.cpptools",
+        "peterjausovec.vscode-docker",
+        "twxs.cmake",
+        "uavcan.dsdl",
+        "vector-of-bool.cmake-tools",
+        "wholroyd.jinja",
+        "zixuanwang.linkerscript"
+    ]
+}

@@ -57,7 +57,6 @@
                 }
             },
             "command": "oflash.exe",
-            // Make this the default build command.
             "args": [
                 {
                     "value": "0",
@@ -91,6 +90,73 @@
             "presentation": {
                 "reveal": "always",
                 "panel": "new"
+            }
+        },
+        {
+            "label": "OpenOCD",
+            "type": "shell",
+            "windows": {
+                "options": {
+                    "shell": {
+                        "executable": "powershell.exe",
+                        "args": [
+                            "-NoProfile",
+                            "-ExecutionPolicy",
+                            "Bypass",
+                            "-Command"
+                        ]
+                    },
+                    "cwd": "${workspaceFolder}\\script\\openocd"
+                }
+            },
+            "command": "D:\\Program Files (x86)\\openocd\\0.6.0\\bin\\openocd.exe",
+            "args": [
+                {
+                    "value": "-f jz2440.cfg",
+                    "quoting": "weak"
+                }
+            ],
+            "group": "none",
+            // Show the output window only if unrecognized errors occur.
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "Telnet OpenOCD",
+            "type": "shell",
+            "windows": {
+                "options": {
+                    "shell": {
+                        "executable": "powershell.exe",
+                        "args": [
+                            "-NoProfile",
+                            "-ExecutionPolicy",
+                            "Bypass",
+                            "-Command"
+                        ]
+                    },
+                    "cwd": "${workspaceFolder}\\build\\bin"
+                }
+            },
+            "command": "telnet.exe",
+            "args": [
+                {
+                    "value": "localhost",
+                    "quoting": "weak"
+                },
+                {
+                    "value": "4444",
+                    "quoting": "weak"
+                }
+            ],
+            "group": "none",
+            // Show the output window only if unrecognized errors occur.
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true,
             }
         }
     ]

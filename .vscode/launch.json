@@ -1,3 +1,4 @@
+// https://github.com/PX4/Firmware/blob/master/.vscode/launch.json
 {
     "version": "0.2.0",
     "configurations": [
@@ -31,6 +32,90 @@
                 ]
                 // "preLaunchTask": "MinGW-Make"
             }
+        },
+        {
+            // failed to launch timeout
+            "name": "Cortex-debug (OpenOCD)",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "openocd",
+            "executable": "${command:cmake.launchTargetPath}",
+            "device": "S3C2440A",
+            "configFiles": [
+                "${workspaceRoot}/script/openocd/jz2440.cfg"
+            ],
+            "cwd": "${workspaceRoot}",
+            "internalConsoleOptions": "openOnSessionStart",
+            "preLaunchCommands": [
+                // "source ${workspaceRoot}/platforms/nuttx/Debug/PX4",
+                // "source ${workspaceRoot}/platforms/nuttx/Debug/NuttX",
+                // "source ${workspaceRoot}/platforms/nuttx/Debug/ARMv7M",
+                // "set mem inaccessible-by-default off",
+                // "set print pretty"
+            ],
+            "linux": {},
+            "osx": {},
+            "windows": {}
+        },
+        {
+            // 首先手动启动OpenOCD Task
+            "name": "ARM Debug with OpenJTAG",
+            "type": "cppdbg",
+            "request": "launch",
+            "targetArchitecture": "arm",
+            "stopAtEntry": true,
+            "program": "${command:cmake.launchTargetPath}",
+            "cwd": "${workspaceRoot}",
+            "setupCommands": [
+                {
+                    "description": "选择调试文件(.elf)到gdb",
+                    "text": "file 'E:/zsGitEx/zsESamples/build/bin/led_on_c_elf'",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "连接GDB Server",
+                    "text": "target remote localhost:3333",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "Reset MCU",
+                    "text": "monitor reset",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "Halt",
+                    "text": "monitor halt",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "下载代码到MCU",
+                    "text": "load",
+                    "ignoreFailures": false
+                },
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "linux": {
+                "MIMode": "gdb"
+            },
+            "osx": {
+                "MIMode": "lldb"
+            },
+            "windows": {
+                "MIMode": "gdb",
+                "miDebuggerPath": "C:\\Users\\zhens\\.vscode\\extensions\\metalcode-eu.windows-arm-none-eabi-0.1.6\\bin\\arm-none-eabi-gdb.exe",
+            },
+            "launchCompleteCommand": "None",
+            "externalConsole": true
+            // it failed too
+            // "miDebuggerServerAddress": "localhost:3333",
+            // "debugServerPath": "D:\\Program Files (x86)\\openocd\\0.6.0\\bin\\openocd.exe",
+            // "debugServerArgs": "-f jz2440.cfg",
+            // it failed too
+            // "preLaunchTask": "OpenOCD",
         },
         {
             "name": "Python",
