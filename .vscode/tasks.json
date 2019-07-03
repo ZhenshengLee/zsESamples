@@ -7,6 +7,16 @@
             "label": "MinGW-Make",
             "type": "shell",
             "command": "mingw32-make.exe",
+            "windows": {
+                "command": "mingw32-make.exe"
+            },
+            "linux": {
+                "command": ""
+            },
+            // No args
+            "args": [
+                "all"
+            ],
             // Make this the default build command.
             "group": {
                 "kind": "build",
@@ -17,10 +27,6 @@
                 "reveal": "always",
                 "panel": "dedicated"
             },
-            // No args
-            "args": [
-                "all"
-            ],
             // Use the standard less compilation problem matcher.
             // zs: The problem matcher is for gcc task, not for make.
             "problemMatcher": {
@@ -40,7 +46,7 @@
             }
         },
         {
-            "label": "Oflash",
+            "label": "Oflash2Nand",
             "type": "shell",
             "windows": {
                 "options": {
@@ -53,10 +59,22 @@
                             "-Command"
                         ]
                     },
-                    "cwd": "D:\\var\\zsftp\\bare"
+                    "cwd": "D:\\var\\zsftp\\bare",
+                    "env": {
+                        "OFLASH_PATH": "oflash.exe",
+                    },
+                    "command": "oflash.exe"
                 }
             },
-            "command": "oflash.exe",
+            "linux": {
+                "command": "/home/zs/bin/oflash",
+                "options": {
+                    "cwd": "/home/zs/nfs_root/bare",
+                    "env": {
+                        "OFLASH_PATH": "/home/zs/bin/oflash"
+                    }
+                }
+            },
             "args": [
                 {
                     "value": "0",
@@ -89,7 +107,74 @@
             // Show the output window only if unrecognized errors occur.
             "presentation": {
                 "reveal": "always",
-                "panel": "new"
+                "panel": "new",
+                "focus": true
+            }
+        },
+        {
+            // in linux sudo is needed, so you will need to open vscode with sudo
+            "label": "Oflash2Nor",
+            "type": "shell",
+            "windows": {
+                "options": {
+                    "shell": {
+                        "executable": "powershell.exe",
+                        "args": [
+                            "-NoProfile",
+                            "-ExecutionPolicy",
+                            "Bypass",
+                            "-Command"
+                        ]
+                    },
+                    "cwd": "D:\\var\\zsftp\\bare",
+                    "env": {
+                        "OFLASH_PATH": "oflash.exe",
+                    },
+                    "command": "oflash.exe"
+                }
+            },
+            "linux": {
+                "command": "/home/zs/bin/oflash",
+                "options": {
+                    "cwd": "/home/zs/nfs_root/bare",
+                    "env": {
+                        "OFLASH_PATH": "/home/zs/bin/oflash"
+                    }
+                }
+            },
+            "args": [
+                {
+                    "value": "0",
+                    "quoting": "weak"
+                },
+                {
+                    "value": "1",
+                    "quoting": "weak"
+                },
+                {
+                    // to nor flash
+                    "value": "1",
+                    "quoting": "weak"
+                },
+                {
+                    "value": "0",
+                    "quoting": "weak"
+                },
+                {
+                    "value": "0",
+                    "quoting": "weak"
+                },
+                {
+                    "value": "u-boot.bin",
+                    "quoting": "weak"
+                }
+            ],
+            "group": "none",
+            // Show the output window only if unrecognized errors occur.
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true
             }
         },
         {
@@ -120,7 +205,8 @@
             // Show the output window only if unrecognized errors occur.
             "presentation": {
                 "reveal": "always",
-                "panel": "new"
+                "panel": "new",
+                "focus": true
             }
         },
         {

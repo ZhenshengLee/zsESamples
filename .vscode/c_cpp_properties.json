@@ -68,7 +68,7 @@
             "defines": [
                 "_DEBUG",
                 "UNICODE",
-                "__GNUC__=8",
+                "__GNUC__=5",
                 "__cdecl=__attribute__((__cdecl__))"
             ],
             "browse": {
@@ -82,7 +82,8 @@
             },
             "cStandard": "c99",
             "cppStandard": "c++11",
-            "compileCommands": "${workspaceFolder}/build/compile_commands.json"
+            "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+            "configurationProvider": "vector-of-bool.cmake-tools"
         },
         {
             "name": "Win32",

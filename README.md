@@ -50,6 +50,8 @@ Samples Learning Embedded Linux
     }
 ```
 
+- linux下使用arm-linux-gnueabi工具链
+
 - 裸板交叉编译只能静态连接，所以把编译描述都静态了
 
 ![](image/2019-06-22-23-43-09.png)
@@ -77,7 +79,7 @@ todo: 后续使用CMake的功能做到编译，复制，安装功能
 
 - 使用vscode的task功能实现，基于eop，使用oflash.exe进行烧写，可以烧到nor，也可以烧写到nand
 - 也可以使用openOCD进行烧写，不过只能烧写到norFlash
-- 懒得重新装uboot，可以使用openOCD烧uboot到nor，然后使用uboot通过ftp将程序拷贝到nand，然后从nand启动就可以了
+- 懒得重新装uboot，可以使用openOCD烧uboot到nor，然后使用uboot通过tftp将程序拷贝到nand，然后从nand启动就可以了
 
 ### 裸机程序的调试
 

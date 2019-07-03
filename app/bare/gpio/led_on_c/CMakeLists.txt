@@ -31,7 +31,15 @@ COMMAND
 ${CMAKE_OBJCOPY} -O binary -S ${EXECUTABLE_OUTPUT_PATH}/${ELFNAME} ${EXECUTABLE_OUTPUT_PATH}/${TARGETNAME}
 )
 
-add_custom_command(TARGET ${TARGETNAME} POST_BUILD
-COMMAND
-${CMAKE_COMMAND} -E copy ${EXECUTABLE_OUTPUT_PATH}/${TARGETNAME} "D:\\var\\zsftp\\bare"
+if(WIN32)
+    add_custom_command(TARGET ${TARGETNAME} POST_BUILD
+    COMMAND
+    ${CMAKE_COMMAND} -E copy ${EXECUTABLE_OUTPUT_PATH}/${TARGETNAME} "D:\\var\\zsftp\\bare"
 )
+elseif(UNIX)
+    add_custom_command(TARGET ${TARGETNAME} POST_BUILD
+    COMMAND
+    ${CMAKE_COMMAND} -E copy ${EXECUTABLE_OUTPUT_PATH}/${TARGETNAME} "/home/zs/nfs_root/bare"
+    )
+endif()
+
