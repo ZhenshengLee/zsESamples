@@ -1,0 +1,3 @@
+# Bus 001 Device 014: ID 067b:2303 Prolific Technology, Inc. PL2303 Serial Port
+
+KERNEL=="ttyUSB*", ATTRS{idVendor}=="067b", ATTRS{idProduct}=="2303", MODE:="0777",  SYMLINK+="jz2440_uart"
