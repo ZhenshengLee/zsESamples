@@ -11,4 +11,3 @@ out/
 /.vs/
 .vscode/ipch/
 .vscode/settings.json
-extern/googletest/
