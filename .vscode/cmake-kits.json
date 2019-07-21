@@ -1,7 +1,7 @@
 [
     {
         "name": "zs GCC for arm-none-eabi",
-        "toolchainFile": "${workspaceRoot}/cmake/toolchain/arm-none-eabi.cmake",
+        "toolchainFile": "${workspaceRoot}/cmake/toolchains/arm-none-eabi.cmake",
         "preferredGenerator": {
             "name": "Unix Makefiles"
         },
@@ -12,7 +12,7 @@
     },
     {
         "name": "zs GCC for arm-linux-gnueabi",
-        "toolchainFile": "${workspaceRoot}/cmake/toolchain/arm-linux-gnueabi.cmake",
+        "toolchainFile": "${workspaceRoot}/cmake/toolchains/arm-linux-gnueabi.cmake",
         "preferredGenerator": {
             "name": "Unix Makefiles"
         },

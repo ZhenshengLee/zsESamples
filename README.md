@@ -10,6 +10,8 @@ filename: readme.md
 
 Samples Learning Embedded Linux
 
+开发代号ZSE
+
 ## 以CMake为编译基础设施
 
 ### 基本的层次化CMake编译描述

@@ -9,6 +9,6 @@ out/
 .cache/
 *.pyc
 /.vs/
-tools/*
 .vscode/ipch/
 .vscode/settings.json
+extern/googletest/
